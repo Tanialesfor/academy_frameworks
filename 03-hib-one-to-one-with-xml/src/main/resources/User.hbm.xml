@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+
+<hibernate-mapping>
+	<class name="by.htp.main.User" table="users"
+		catalog="jd2_hib_one_to_one">
+		<meta attribute="class-description">
+			This class contains the employee detail.
+		</meta>
+		<id name="id" type="int" column="id">
+			<generator class="identity" />
+		</id>
+		<property name="login" column="login" type="string" />
+		<property name="password" column="password" type="string" />
+		<property name="role" column="role" type="string" />
+
+		<many-to-one name="userDetail"  cascade="all"
+			class="by.htp.main.UserDetail" column="users_detail_id"/>
+				
+	</class>
+</hibernate-mapping>
